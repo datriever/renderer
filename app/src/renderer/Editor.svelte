@@ -21,7 +21,7 @@
   const theme = { ...defaultTheme, ...propsTheme }
 
   let markdown = $state(startMarkdown ?? '')
-  let divider = $state(50)
+  let divider = $state(40)
   let resizing = $state(false)
 
   function startResize() {
@@ -38,7 +38,6 @@
     const containerRect = container.getBoundingClientRect()
     const newLeftWidth = ((event.clientX - containerRect.left) / containerRect.width) * 100
 
-    // Constrain the width to prevent overlapping
     if (newLeftWidth > 20 && newLeftWidth < 80) {
       divider = newLeftWidth
     }
